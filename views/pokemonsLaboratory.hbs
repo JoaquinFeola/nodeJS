@@ -1,0 +1,29 @@
+<h3 class="text-center">Crea tu pokemón</h3>
+<hr>
+
+<form action="/api/v1/pokemon/" method="POST" class="d-flex align-items-center flex-column gap-3 ">
+    <label for="pokemon_name">
+        Nombre del pokemón <span style="color: red;">*</span>
+    </label>
+    <input autocomplete="off" required class="form-control w-50" name="pokemon_name" id="pokemon_name" type="text"
+        placeholder="Frikach">
+    <label for="pokemon_description">
+        Descripción del pokemón <span style="color: red;">*</span>
+    </label>
+    <textarea autocomplete="off" style="max-height: 130px;" required type="text" class="form-control w-50"
+        name="pokemon_description" id="pokemon_description"></textarea>
+    <label for="pokemon_habilities">
+        Habilidades del pokemón <span style="color: red;">*</span>
+    </label>
+    <select required class="form-select w-50" name="pokemon_habilities" id="pokemon_habilities">
+        {{#each results}}
+            <option value="">{{ ability }}</option>
+        {{/each}}
+    </select>
+    <label for="pokemon_image" class="">
+        Imagen del pokemón <span style="color: red;">*</span>
+
+    </label>
+    <input required name="pokemon_image" id="pokemon_image" class="form-control w-50" type="file">
+    <button class="btn btn-primary mt-2 w-50" type="submit">Crear pokemón</button>
+</form>
